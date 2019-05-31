@@ -1,0 +1,6 @@
+this is where stuff that goes in ~/.config goes
+
+Enable the daemon in =systemd/<usr>/sxhkd.service= with:
+
+~systemctl --user enable --now sxhkd~
+

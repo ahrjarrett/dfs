@@ -1,0 +1,11 @@
+.DS_Store
+/.netrwhist
+.config/configstore
+bundle/
+
+.config/nvim/.netrwhist
+.config/nvim/.cache/
+.config/nvim/cache_nvim
+.config/nvim/repos
+.config/nvim/state_nvim.vim
+

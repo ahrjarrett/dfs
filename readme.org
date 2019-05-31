@@ -1,0 +1,14 @@
+#+AUTHOR: andrew jarrett
+#+EMAIL:ahrjarrett@gmail.com
+
+arch dotfiles: my personal "arch-on-a-mac" config
+
+includes:
+- neovim
+- i3
+- sxhbk
+- xorg
+- xterm
+
+everything but the readme and the .exclude folder will should be put (or symlinked) to your home directory.
+

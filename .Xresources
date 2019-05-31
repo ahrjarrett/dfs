@@ -1,0 +1,58 @@
+
+Xft.dpi: 190
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+XTerm.transparent: true
+xTerm.shading: 20
+
+URxvt*faceName: Source Sans-Pro:Medium
+URxvt*faceSize: 12
+URxvt*selectToClipboard: true
+
+XTerm*faceName: Source Sans-Pro:Medium
+XTerm*faceSize: 12
+! XTerm*selectToClipboard: true
+XTerm.t100.selectToClipboard: on
+
+! special
+*.foreground:  #62a779
+*.background:  #1d1f21
+*.cursorColor: #62a779
+
+! black
+*.color0:      #282a2e
+*.color8:      #373b41
+
+! red
+*.color1:      #a54242
+*.color9:      #cc6666
+
+! green
+*.color2:      #8c9440
+*.color10:     #b5bd68
+
+! yellow
+*.color3:      #de935f
+*.color11:     #f0c674
+
+! blue
+*.color4:      #5f819d
+*.color12:     #7193ff
+
+! magenta
+*.color5:      #85678f
+*.color13:     #b294bb
+
+! cyan
+*.color6:      #5e8d87
+*.color14:     #8abeb7
+
+! white
+*.color7:      #707880
+*.color15:     #c5c8c6
+

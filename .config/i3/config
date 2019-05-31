@@ -1,0 +1,180 @@
+# i3 config file (v4)
+
+### launch NetworkManager on i3 start ###
+exec nm-applet
+
+set $modL Mod4
+set $modR Mod3
+set $alt Mod1
+set $term xterm
+
+# shift       Shift_L (0x32),  Shift_R (0x3e
+# lock        Caps_Lock (0x42)
+# control     Control_L (0x25),  Control_R (
+# mod1        Alt_L (0x40),  Alt_R (0x6c),
+# mod2        Num_Lock (0x4d)
+# mod3        Super_R (0x86)
+# mod4        Super_L (0x85),  Super_L (0xce
+# mod5        ISO_Level3_Shift (0x5c),  Mode
+
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1 15
+font pango:Source Code Pro Semibold 11
+
+#####bindsym $modL+0                                            workspace 10
+#####bindsym $modL+Shift+0                                      move container to workspace 10
+
+# i3 bar
+bar {
+  #font pango:Source Sans Pro:style=Light 11
+  font pango:Source Code Pro Light 11
+  position top
+
+  status_command i3blocks
+  # status_command i3status -c .i3/i3status.conf
+
+  colors {
+    separator #268bd2
+    background #002b36
+    statusline #839496
+    focused_workspace #fdf6e3 #6c71c4 #fdf6e3
+    active_workspace #fdf6e3 #6c71c4 #fdf6e3
+    inactive_workspace #002b36 #586e75 #002b36
+    urgent_workspace #d33682 #d33682 #fdf6e3
+  }
+}
+
+#####################
+# STOLE FROM LUKE ###
+#####################
+bindsym $modL+b bar mode toggle
+bindsym $modL+Shift+b floating toggle; sticky toggle; exec --no-startup-id hover left
+bindsym $mod+Shift+Return exec --no-startup-id samedir
+######################
+# /STOKE FROM LUKE ###
+######################
+
+bindsym $modL+Return                                      exec $term
+
+
+
+bindsym $modL+d                                           exec i3-sensible-terminal
+#bindsym $modL+Shift+d                                     split vertical;; exec term
+
+bindsym $modL+v                                           exec $term -e "vim (echo $PWD)"
+
+bindsym $modL+h                                           focus left
+bindsym $modL+j                                           focus down
+bindsym $modL+k                                           focus up
+bindsym $modL+l                                           focus right
+
+# move focused window
+bindsym $modL+Shift+h                                      move left
+bindsym $modL+Shift+j                                      move down
+bindsym $modL+Shift+k                                      move up
+bindsym $modL+Shift+l                                      move right
+
+# exit i3 (logs you out of your X session)
+bindsym $modL+Shift+e                                      exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+ # kill focused window
+bindsym $modL+w                                            kill
+
+# reload the configuration file
+bindsym $modL+Shift+r                                      restart
+
+# enter fullscreen mode for the focused container
+bindsym $modL+f                                            fullscreen
+
+# brightness
+#bindsym XF86MonBrightnessUp exec light -A 10
+#bindsym XF86MonBrightnessDown exec light -U 10
+
+bindsym $modL+t                                            split toggle
+bindsym $modL+Shift+t                                      layout toggle all
+#bindsym $modL+w layout tabbed
+#bindsym $modL+e layout toggle split
+
+# toggle tiling / floating
+bindsym $modL+Shift+space                                  floating toggle
+
+# focus the parent container
+bindsym $modL+a                                            focus parent
+
+# switch to workspace
+bindsym $modL+1                                            workspace 1
+bindsym $modL+2                                            workspace 2
+bindsym $modL+3                                            workspace 3
+bindsym $modL+4                                            workspace 4
+bindsym $modL+5                                            workspace 5
+bindsym $modL+6                                            workspace 6
+bindsym $modL+7                                            workspace 7
+bindsym $modL+8                                            workspace 8
+bindsym $modL+9                                            workspace 9
+bindsym $modL+y                                            workspace prev
+bindsym $modL+x                                            workspace next
+
+# move focused container to workspace
+bindsym $modL+Shift+1                                      move container to workspace 1
+bindsym $modL+Shift+2                                      move container to workspace 2
+bindsym $modL+Shift+3                                      move container to workspace 3
+bindsym $modL+Shift+4                                      move container to workspace 4
+bindsym $modL+Shift+5                                      move container to workspace 5
+bindsym $modL+Shift+6                                      move container to workspace 6
+bindsym $modL+Shift+7                                      move container to workspace 7
+bindsym $modL+Shift+8                                      move container to workspace 8
+bindsym $modL+Shift+9                                      move container to workspace 9
+
+bindsym $modL+Tab                                          workspace next
+bindsym $modL+Shift+Tab                                    workspace prev
+
+bindsym $modL+z                                            exec "xterm -cLauncher --geometry=800x200"
+bindsym $modL+r                                            mode "resize"
+
+bindsym $modL+Shift+plus                                   gaps inner current plus 5
+bindsym $modL+Shift+underscore                             gaps inner current minus 5
+bindsym $modL+Control+Shift+plus                           gaps outer current plus 5
+bindsym $modL+Control+Shift+underscore                     gaps outer current minus 5
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  # bindsym Left resize shrink width 10 px or 10 ppt
+  # bindsym Down resize grow height 10 px or 10 ppt
+  # bindsym Up resize shrink height 10 px or 10 ppt
+  # bindsym Right resize grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+#for_window [instance="file_progress"] floating enable
+# for_window [title="Terminal"] move window to workspace 2
+# for_window [title="term1"] move workspace number 2
+# for_window [title="Files"] move window to workspace 3
+# for_window [title="term2"] move workspace number 3
+# for_window [instance="gthumb"] floating enable
+# for_window [instance="gThumb"] floating enable
+# for_window [instance="vlc"] floating enable
+# for_window [instance="qalculate"] floating enable
+
+for_window [instance="Launcher"] floating enable
+
+# i3-gaps
+# necessary for i3-gaps:
+for_window [class=".*"] border pixel 0
+gaps inner 15
+gaps outer 0
+smart_gaps on
+

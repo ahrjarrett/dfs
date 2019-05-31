@@ -1,0 +1,10 @@
+[user]
+	email = ahrjarrett@gmail.com
+	name = Andrew Jarrett
+[core]
+	excludesfile = /Users/aj/.gitignore_global
+[alias]
+	graph = log --graph --oneline
+	co = checkout
+[color]
+	ui = true
